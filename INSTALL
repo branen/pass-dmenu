@@ -1,0 +1,23 @@
+pass-dmenu has no strict dependencies besides Python 3, dmenu, and Password
+Store, so you can install it by copying.  Its functionality will be enhanced
+if xclip, xdotool, and pass-otp are also installed.
+
+https://tools.suckless.org/dmenu/
+https://www.passwordstore.org/
+https://www.semicomplete.com/projects/xdotool/
+https://github.com/tadfisher/pass-otp
+https://github.com/astrand/xclip
+
+
+The manual build requires Pandoc and Panflute.
+
+https://pandoc.org/
+http://scorreia.com/software/panflute/
+
+
+The HTML version of the manual looks much better with the following fonts:
+
+Font name          | CTAN package | Debian package
+-------------------+--------------+--------------------------
+Bitstream Charter  | charter      | texlive-fonts-recommended
+Latin Modern Mono  | lm           | fonts-lmodern
