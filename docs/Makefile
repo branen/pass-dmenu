@@ -18,7 +18,8 @@ build/man1/pass-dmenu.1: MANUAL.md $(reqs)
 
 build/html/pass-dmenu.html: MANUAL.md pass-dmenu.css $(reqs)
 	cp pass-dmenu.css build/html
-	pandoc -f markdown -t html5 -c pass-dmenu.css --filter panflute -s -o $@ $<
+	pandoc -f markdown -t html5 -c pass-dmenu.css --filter panflute -s \
+	  -o $@ $<
 
 .PHONY: clean
 clean:
