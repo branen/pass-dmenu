@@ -1,3 +1,15 @@
+/*
+Copyright 2019 Branen Salmon
+Licensed under the GNU GPL v3 or later--see LICENSE for details.
+
+This stylesheet looks much better with the following fonts:
+
+Font name          | CTAN package | Debian package
+-------------------+--------------+--------------------------
+Bitstream Charter  | charter      | texlive-fonts-recommended
+Latin Modern Mono  | lm           | fonts-lmodern
+*/
+
 body {
     background-color: #f7f7f7;
     font-family: "Bitstream Charter", serif;
