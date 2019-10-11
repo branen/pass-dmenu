@@ -1,0 +1,15 @@
+Document: pass-dmenu
+Title: pass-dmenu manual
+Author: Branen Salmon
+Abstract: This manual describes pass-dmenu, a dmenu-based UI for Password Store
+ that uses predictive ordering and integrations with xdotool and pass-otp to
+ reduce considerably the number of keystrokes required to use a password.
+ .
+ It is especially effective where sets of related passwords tend to be addressed
+ in sequence (for example, when a username, password, and OTP must be entered to
+ authenticate to a website).
+Section: System/Security
+
+Format: HTML
+Index: /usr/share/doc/pass-dmenu/html/pass-dmenu.html
+Files: /usr/share/doc/pass-dmenu/html/*.html

@@ -1,0 +1,25 @@
+Source: pass-dmenu
+Section: admin
+Priority: optional
+Maintainer: Branen Salmon <bugs@nenarb.net>
+Build-Depends: debhelper (>= 12), dh-python, python3-all, python3-setuptools,
+    pandoc, python3-panflute
+Standards-Version: 4.4.1
+X-Python3-Version: >= 3.7
+Rules-Requires-Root: no
+#Homepage: TODO
+#Vcs-Browser: TODO
+#Vcs-Git: TODO
+
+Package: pass-dmenu
+Architecture: all
+Depends: pass, suckless-tools, ${python3:Depends}, ${misc:Depends}
+Recommends: xdotool, xclip, pass-extension-otp
+Description: ergonomic UI for Password Store
+ pass-dmenu is a dmenu-based UI for Password Store that uses predictive ordering
+ and integrations with xdotool and pass-otp to reduce considerably the number of
+ keystrokes required to use a password.
+ .
+ It is especially effective where sets of related passwords tend to be addressed
+ in sequence (for example, when a username, password, and OTP must be entered to
+ authenticate to a website).

@@ -1,0 +1,22 @@
+From: Branen Salmon <bugs@nenarb.net>
+Date: Fri, 11 Oct 2019 10:28:43 -0400
+Subject: Add stub setup.py for dh-python
+
+---
+ setup.py | 7 +++++++
+ 1 file changed, 7 insertions(+)
+ create mode 100755 setup.py
+
+diff --git a/setup.py b/setup.py
+new file mode 100755
+index 0000000..299e77a
+--- /dev/null
++++ b/setup.py
+@@ -0,0 +1,7 @@
++#!/usr/bin/python3
++from setuptools import setup
++
++setup(
++        name='pass-dmenu',
++        scripts=['pass-dmenu'],
++        )

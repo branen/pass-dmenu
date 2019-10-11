@@ -1,0 +1,8 @@
+pass-dmenu for Debian
+---------------------
+
+Upstream uses signed tags in lieu of release tarballs; checking out
+a tag and running ./release-tarball will generate one when needed.
+
+ -- Branen Salmon <bugs@nenarb.net>  Fri, 11 Oct 2019 09:37:54 -0400
+
