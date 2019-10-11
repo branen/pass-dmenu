@@ -11,7 +11,17 @@ cwd="$(pwd)"
 cd "$(dirname "$0")"
 if [ $# -eq 0 ]
 then
-    tag="$(git describe --abbrev=0)"
+    tag=''
+    while [ -z "${tag##*/*}" ]
+    do
+        if [ -z "$tag" ]
+        then
+            tag='HEAD'
+        else
+            tag="$tag~1"
+        fi
+        tag="$(git describe --abbrev=0 "$tag")"
+    done
 else
     tag="$1"
     explicit=y
