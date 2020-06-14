@@ -43,6 +43,10 @@ Any additional arguments to `pass-dmenu` are passed directly to [`dmenu`].
 
 If a password value begins with `otpauth://`, [`pass-otp`] will be used to generate a one-time password, which will then be *clipped* or *typed* as usual.
 
+## Multi-line passwords
+
+Like `pass show --clip`, `pass-dmenu` considers only the first line of multi-line passwords.
+
 
 # Predictive ordering
 
