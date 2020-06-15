@@ -409,7 +409,7 @@ class Dispatcher(object):
         '''Dispatch the action specified to __init__.'''
         password = check_output(
                 ('pass', 'show', candidate),
-                ).decode().rstrip('\n')
+                ).decode()).split('\n')[0]
         if password.startswith('otpauth://'):
             password = check_output(
                     ('pass', 'otp', candidate),
