@@ -1,5 +1,6 @@
-pass-dmenu (0.1.1-1) UNRELEASED; urgency=medium
+pass-dmenu (0.1.3-1) UNRELEASED; urgency=medium
 
-  * Packaging is mostly done--see linitian for details.
+  * Improve HTML doc formatting
+  * Ignore all but the first line of a secret
 
- -- Branen Salmon <bugs@nenarb.net>  Fri, 11 Oct 2019 19:38:31 -0400
+ -- Branen Salmon <bugs@nenarb.net>  Sun, 14 Jun 2020 21:06:13 -0400
