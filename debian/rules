@@ -11,10 +11,15 @@ override_dh_auto_build:
 	dh_auto_build
 	(cd docs; make)
 
+override_dh_auto_clean:
+	dpkg-source -i -I --before-build .
+	dh_auto_clean
+	dpkg-source -i -I --after-build .
+
 override_dh_clean:
 	dh_clean
 	(cd docs; make clean)
-	rm -rf *.egg-info
+	rm -rf pass_dmenu.egg-info
 
 %:
 	dh $@ --with python3 --buildsystem=pybuild
