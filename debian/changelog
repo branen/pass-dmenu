@@ -1,3 +1,10 @@
+pass-dmenu (0.1.3-2) UNRELEASED; urgency=medium
+
+  * Build-Depends on python3 instead of python3-all
+  * Run dh_auto_clean with patches applied
+
+ -- Branen Salmon <bugs@nenarb.net>  Sun, 06 Sep 2020 16:48:32 -0400
+
 pass-dmenu (0.1.3-1) UNRELEASED; urgency=medium
 
   * Improve HTML doc formatting
