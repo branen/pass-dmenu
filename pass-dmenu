@@ -47,7 +47,7 @@ Rule = NewType(
         Dict[PasswordNameRegex, List[PasswordNameRegexTemplate]],
         )
 RuleSet = NewType('RuleSet', List[Rule])
-Picker = NewType('Picker', Callable[[PasswordName], Optional[re.Match]])
+Picker = Callable[[PasswordName], Optional[typing.Match[str]]]
 
 
 def int_from_env(key: str, base: int, default: int) -> int:
@@ -66,13 +66,13 @@ def int_from_env(key: str, base: int, default: int) -> int:
                 )
 
 
-store_path: PathStr = os.getenv(
+store_path: PathStr = PathStr(os.getenv(
         'PASSWORD_STORE_DIR',
         os.path.expanduser('~/.password-store'),
-        )
-cache_path: PathStr = os.path.join(store_path, '.pass-dmenu.cache')
-rules_path: PathStr = os.path.join(store_path, '.pass-dmenu.rules')
-dmenu_path: PathStr = os.getenv('PASSWORD_STORE_DMENU', 'dmenu')
+        ))
+cache_path: PathStr = PathStr(os.path.join(store_path, '.pass-dmenu.cache'))
+rules_path: PathStr = PathStr(os.path.join(store_path, '.pass-dmenu.rules'))
+dmenu_path: PathStr = PathStr(os.getenv('PASSWORD_STORE_DMENU', 'dmenu'))
 x_selection: str = os.getenv('PASSWORD_STORE_X_SELECTION', 'clipboard')
 clip_time: int = int_from_env('PASSWORD_STORE_CLIP_TIME', 10, 45)
 umask: int = int_from_env('PASSWORD_STORE_UMASK', 8, 0o77)
@@ -159,7 +159,7 @@ def load_mru_candidate(
     '''
     try:
         with open(cache_path, 'r') as cache_file:
-            return cache_file.read()
+            return PasswordName(cache_file.read())
     except FileNotFoundError:
         return None
 
@@ -203,7 +203,7 @@ def load_rules(rules_path: PathStr = rules_path) -> RuleSet:
         sys.stderr.write(
                 'WARNING: Unable to read rules from {!r}\n'.format(rules_path),
                 )
-        return {}
+        return RuleSet([])
 
     def check_type(this, target):
         if not isinstance(this, target):
@@ -241,7 +241,7 @@ def load_rules(rules_path: PathStr = rules_path) -> RuleSet:
         for val_elem in rule[key]:
             check_type(val_elem, str)
 
-    return json_rules
+    return RuleSet(json_rules)
 
 
 def load_candidates(store_path=store_path) -> List[PasswordName]:
@@ -317,7 +317,8 @@ def generate_pickers(
                 raise RuleError(exc, 'interpolate template', picker_tmpl)
 
             try:
-                pickers.append(re.compile(picker_src).search)
+                picker: Picker = re.compile(picker_src).search
+                pickers.append(picker)
             except re.error as exc:
                 raise RuleError(
                         exc,
@@ -365,10 +366,10 @@ def sort_by_pickers(
 def dmenu(
         candidates: List[str],
         dmenu_path: PathStr = dmenu_path,
-        args: Tuple[str] = tuple(),
+        args: Tuple[str] = Union[Tuple[()], Tuple[str]],
         ) -> Optional[str]:
     '''Displays a list of candidates in dmenu, returns a response'''
-    argv = [dmenu_path]
+    argv = [str(dmenu_path)]
     argv.extend(args)
     try:
         candidate = check_output(
