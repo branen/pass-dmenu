@@ -4,7 +4,7 @@
 This module is *not* part of the compatibility guarantee--see VERSIONING
 for details.
 """
-# Copyright 2019 Branen Salmon
+# Copyright 2020 Branen Salmon
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@ for details.
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-__copyright__ = 'Copyright 2019 Branen Salmon'
+__copyright__ = 'Copyright 2020 Branen Salmon'
 __license__ = 'GPL-3+'
 
 
