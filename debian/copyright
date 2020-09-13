@@ -3,11 +3,11 @@ Upstream-Name: pass-dmenu
 #Source: TODO
 
 Files: *
-Copyright: 2019 Branen Salmon <bugs@nenarb.net>
+Copyright: 2020 Branen Salmon <bugs@nenarb.net>
 License: GPL-3+
 
 Files: debian/*
-Copyright: 2019 Branen Salmon <bugs@nenarb.net>
+Copyright: 2020 Branen Salmon <bugs@nenarb.net>
 License: GPL-3+
 
 License: GPL-3+
